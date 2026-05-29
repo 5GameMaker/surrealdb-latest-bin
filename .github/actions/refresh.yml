@@ -1,0 +1,12 @@
+on:
+  workflow_dispatch:
+  schedule:
+  - cron: '0 0 * * *'
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          apt update
+          apt install nodejs
+          node .

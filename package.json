@@ -1,0 +1,5 @@
+{
+    "name": "surrealdb-latest-bin",
+    "type": "module",
+    "main": "index.js"
+}
