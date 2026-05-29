@@ -84,7 +84,7 @@ async function createRelease(prefix, versionfile, prerelease, alwaysnew) {
     ]) promises.push((async() => { try {
         console.log(`[${prefix}] Downloading SurrealDB for ${os} on ${arch}`);
 
-        const { stream, length } = await surrealdbDownload(version, os, arch);
+        const { stream, length } = await surrealdbDownload(prefix == "nightly" ? "nightly" : version, os, arch);
         const filename = surrealdbFilename(version, os, arch);
 
         console.log(`[${prefix}] Publishing as ${filename}`);
