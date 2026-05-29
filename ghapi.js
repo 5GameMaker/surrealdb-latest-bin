@@ -69,7 +69,7 @@ export async function releaseAssetDelete(id) {
             "X-GitHub-Api-Version": "2026-03-10",
         },
     });
-    if (!output.ok) throw Error(`Failed to delete asset ID ${id}: ${output.status}`);
+    if (!output.ok) throw Error(`Failed to delete asset ID ${id}: ${await output.text()}`);
 }
 
 export async function releaseAssetUpload(stream, name, contentLength, uploadUrl) {
@@ -91,5 +91,5 @@ export async function releaseAssetUpload(stream, name, contentLength, uploadUrl)
         headers,
         body: stream,
     });
-    if (!output.ok) throw Error(`Failed to upload asset: ${output.status}`);
+    if (!output.ok) throw Error(`Failed to upload asset: ${await output.text()}`);
 }
