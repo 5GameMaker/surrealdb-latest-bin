@@ -101,7 +101,7 @@ async function createRelease(prefix, versionfile, prerelease, alwaysnew) {
         }
 
         console.log(`[${prefix}] Uploading new asset`);
-        await releaseAssetUpload(stream, filename, null, release.uploadUrl);
+        await releaseAssetUpload(stream, filename, length, release.uploadUrl);
     } catch (e) { console.error(e); failed = true; } })());
     await Promise.all(promises);
     console.log(`[${prefix}] Upload complete.`);
