@@ -8,12 +8,17 @@ publish them in [releases section](https://github.com/5GameMaker/surrealdb-lates
 - Releases will be published as just regular releases with `release-*` tag.
 - Betas will be published as pre-releases with a `beta-*` tag.
 - Alphas will be published as pre-releases with a `alpha-*` tag.
+- Nightly will be published as pre-releases with a `nightly-*` tag. Importantly, the file will be replaced daily up until
+  the version name is changed in `nightly.txt`.
+
+Everything here is public information sourced from <https://install.surrealdb.com/>.
 
 ## Usage notes
 
 For Windows, SurrealDB simply publishes a binary.
 
-For other OSs the published *archive* contains exactly one file named `surreal`.
+For other OSs the published *archive* contains exactly one file named `surreal`. Use
+`curl -L <URL> | tar -xzO surreal > surreal && chmod +x surreal` to properly download them.
 
 This may be changed in the future, but that's what it is right now.
 
