@@ -1,8 +1,11 @@
 # Latest SurrealDB binaries
 
-Since SurrealDB isn't publishing their binaries on Github, I will!
+> [!WARNING]
+> By downloading files from this repo you agree with SurrealDB's License.
+>
+> You can read it here: <https://github.com/surrealdb/surrealdb/blob/main/LICENSE>.
 
-You can read SurrealDB's license [here](https://github.com/surrealdb/surrealdb/blob/main/LICENSE).
+Since SurrealDB isn't publishing their binaries on Github, I will!
 
 This repo has an action running every day to check for updates. If an update is found, it'll download all the binaries and
 publish them in [releases section](https://github.com/5GameMaker/surrealdb-latest-bin/releases).
