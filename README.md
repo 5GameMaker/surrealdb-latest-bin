@@ -8,3 +8,11 @@ publish them in [releases section](https://github.com/5GameMaker/surrealdb-lates
 - Releases will be published as just regular releases with `release-*` tag.
 - Betas will be published as pre-releases with a `beta-*` tag.
 - Alphas will be published as pre-releases with a `alpha-*` tag.
+
+## Use of AI in this repo
+
+I don't care enough not to, explained entirely by the image below:
+
+![Thank you, GitHub](https://raw.githubusercontent.com/5GameMaker/surrealdb-latest-bin/refs/heads/master/thank-you-github.png)
+
+Specifically, the [workflow file itself](https://github.com/5GameMaker/surrealdb-latest-bin/tree/master/.github/workflows/refresh.yml).

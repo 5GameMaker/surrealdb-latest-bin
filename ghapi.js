@@ -14,7 +14,7 @@ export async function releaseExists(name) {
     const output = await fetch(api(`/repos/${config.owner}/${config.repo}/releases/${name}`), {
         headers: {
             "Accept": "application/vnd.github+json",
-            "Authorization": config.token,
+            "Authorization": `Bearer ${config.token}`,
             "X-GitHub-Api-Version": "2026-03-10",
         },
     });
@@ -36,7 +36,7 @@ export async function releaseCreate(name, prerelease) {
         method: "POST",
         headers: {
             "Accept": "application/vnd.github+json",
-            "Authorization": config.token,
+            "Authorization": `Bearer ${config.token}`,
             "X-GitHub-Api-Version": "2026-03-10",
         },
         body: JSON.stringify({
@@ -62,7 +62,7 @@ export async function releaseAssetDelete(id) {
         method: "DELETE",
         headers: {
             "Accept": "application/vnd.github+json",
-            "Authorization": config.token,
+            "Authorization": `Bearer ${config.token}`,
             "X-GitHub-Api-Version": "2026-03-10",
         },
     });
@@ -72,7 +72,7 @@ export async function releaseAssetDelete(id) {
 export async function releaseAssetUpload(stream, name, contentLength, uploadUrl) {
     const headers = {
         "Accept": "application/vnd.github+json",
-        "Authorization": config.token,
+        "Authorization": `Bearer ${config.token}`,
         "X-GitHub-Api-Version": "2026-03-10",
         "Content-Type": "application/octet-stream",
     };
