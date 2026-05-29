@@ -18,7 +18,10 @@ export async function releaseExists(name) {
             "X-GitHub-Api-Version": "2026-03-10",
         },
     });
-    if (!output.ok) return null;
+    if (!output.ok) {
+        console.warn(`warn: Release does not exist ${await output.text()}`);
+        return null;
+    }
     const text = await output.json();
     return { uploadUrl: text.upload_url, assets: text.assets.map(x => ({
         digest: x.digest,
