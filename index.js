@@ -80,7 +80,7 @@ async function createRelease(prefix, versionfile, prerelease, alwaysnew) {
         ["linux", "arm64"],
         ["darwin", "amd64"],
         ["darwin", "arm64"],
-        ["windows", "arm64"],
+        ["windows", "amd64"],
     ]) promises.push((async() => { try {
         console.log(`[${prefix}] Downloading SurrealDB for ${os} on ${arch}`);
 

@@ -86,6 +86,7 @@ export async function releaseAssetUpload(stream, name, contentLength, uploadUrl)
     const url = new URL(uploadUrl.slice(0, i));
     url.searchParams.set("name", name);
 
+    console.log(`info: uploading to ${url}`);
     const output = await fetch(url.toString(), {
         method: "POST",
         headers,
