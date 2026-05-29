@@ -30,7 +30,7 @@ async function fetchRetry(num, ...args) {
  */
 function surrealdbFilename(version, os, arch) {
     const ext = os == "windows" ? "exe" : "tgz";
-    return `surrealdb.${os}-${arch}.${ext}`;
+    return `surrealdb-${version}.${os}-${arch}.${ext}`;
 }
 
 /**
