@@ -9,6 +9,14 @@ publish them in [releases section](https://github.com/5GameMaker/surrealdb-lates
 - Betas will be published as pre-releases with a `beta-*` tag.
 - Alphas will be published as pre-releases with a `alpha-*` tag.
 
+## Usage notes
+
+For Windows, SurrealDB simply publishes a binary.
+
+For other OSs the published *archive* contains exactly one file named `surreal`.
+
+This may be changed in the future, but that's what it is right now.
+
 ## Use of AI in this repo
 
 I don't care enough not to, explained entirely by the image below:
