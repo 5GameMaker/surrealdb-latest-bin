@@ -74,9 +74,9 @@ async function createRelease(prefix, versionfile, prerelease, alwaysnew) {
 
     const promises = [];
     for (const [os, arch] of [
-        ["linux", "x86_64"],
+        ["linux", "amd64"],
         ["linux", "arm64"],
-        ["darwin", "x86_64"],
+        ["darwin", "amd64"],
         ["darwin", "arm64"],
         ["windows", "arm64"],
     ]) promises.push((async() => {
