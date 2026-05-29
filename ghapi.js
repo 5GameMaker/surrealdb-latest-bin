@@ -91,6 +91,7 @@ export async function releaseAssetUpload(stream, name, contentLength, uploadUrl)
         method: "POST",
         headers,
         body: stream,
+        duplex: "half",
     });
     if (!output.ok) throw Error(`Failed to upload asset: ${await output.text()}`);
 }
