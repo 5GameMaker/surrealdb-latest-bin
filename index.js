@@ -79,9 +79,13 @@ async function createRelease(prefix, versionfile, prerelease, alwaysnew) {
         ["darwin", "x86_64"],
         ["darwin", "arm64"],
         ["windows", "arm64"],
-    ]) promises.push(async() => {
+    ]) promises.push((async() => {
+        console.log(`[${prefix}] Downloading SurrealDB for ${os} on ${arch}`);
+
         const { stream, length } = await surrealdbDownload(version, os, arch);
         const filename = surrealdbDownload(version, os, arch);
+
+        console.log(`[${prefix}] Publishing as ${filename}`);
 
         const asset = release.assets.find(x => x.name == filename);
         if (asset != null) {
@@ -91,7 +95,7 @@ async function createRelease(prefix, versionfile, prerelease, alwaysnew) {
 
         console.log(`[${prefix}] Uploading new asset`);
         await releaseAssetUpload(stream, tag, length, release.uploadUrl);
-    });
+    })());
     await Promise.all(promises);
     console.log(`[${prefix}] Upload complete.`);
 }
