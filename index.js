@@ -45,7 +45,7 @@ async function surrealdbDownload(version, os, arch) {
     const filename = surrealdbFilename(version, os, arch);
     const file = await fetchRetry(5, `https://download.surrealdb.com/${version}/${filename}`);
     if (!file.ok) throw Error(`Could not fetch https://download.surrealdb.com/${version}/${filename}: ${await file.text()}`);
-    return { stream: file.body.getReader(), length: file.headers.get("Content-Length") };
+    return { stream: file.body, length: file.headers.get("Content-Length") };
 }
 
 /**
