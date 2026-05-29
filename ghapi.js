@@ -11,7 +11,7 @@ function api(path) { return config.root.endsWith("/") ? `${config.root.slice(0, 
  * @returns {Promise<Release | null>}
  */
 export async function releaseExists(name) {
-    const output = await fetch(api(`/repos/${config.owner}/${config.repo}/releases/${name}`), {
+    const output = await fetch(api(`/repos/${config.owner}/${config.repo}/releases/tags/${name}`), {
         headers: {
             "Accept": "application/vnd.github+json",
             "Authorization": `Bearer ${config.token}`,
@@ -19,7 +19,7 @@ export async function releaseExists(name) {
         },
     });
     if (!output.ok) {
-        console.warn(`warn: Release does not exist ${await output.text()}`);
+        console.warn(`warn: Release ${name} does not exist ${await output.text()}`);
         return null;
     }
     const text = await output.json();
