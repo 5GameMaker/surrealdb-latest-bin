@@ -1,5 +1,7 @@
 import { config as ghconfig, releaseExists, releaseCreate, releaseAssetDelete, releaseAssetUpload } from "./ghapi.js";
 
+let failed = false;
+
 let token = process.env["GITHUB_TOKEN"];
 if (token == null) {
     console.warn("Token is not defined!");
@@ -79,7 +81,7 @@ async function createRelease(prefix, versionfile, prerelease, alwaysnew) {
         ["darwin", "amd64"],
         ["darwin", "arm64"],
         ["windows", "arm64"],
-    ]) promises.push((async() => {
+    ]) promises.push((async() => { try {
         console.log(`[${prefix}] Downloading SurrealDB for ${os} on ${arch}`);
 
         const { stream, length } = await surrealdbDownload(version, os, arch);
@@ -95,7 +97,7 @@ async function createRelease(prefix, versionfile, prerelease, alwaysnew) {
 
         console.log(`[${prefix}] Uploading new asset`);
         await releaseAssetUpload(stream, tag, length, release.uploadUrl);
-    })());
+    } catch (e) { console.error(e); failed = true; } })());
     await Promise.all(promises);
     console.log(`[${prefix}] Upload complete.`);
 }
@@ -106,3 +108,5 @@ await Promise.all([
     createRelease("alpha", "alpha.txt", true, false),
     createRelease("nightly", "nightly.txt", true, true),
 ]);
+
+if (failed) process.exit(1);
