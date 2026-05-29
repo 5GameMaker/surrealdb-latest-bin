@@ -4,9 +4,11 @@ on:
   - cron: '0 0 * * *'
 jobs:
   refresh:
+    name: Update binaries
     runs-on: ubuntu-latest
     steps:
       - run: |
+          git checkout
           apt update
           apt install nodejs
           node .
