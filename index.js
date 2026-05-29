@@ -85,7 +85,7 @@ async function createRelease(prefix, versionfile, prerelease, alwaysnew) {
         console.log(`[${prefix}] Downloading SurrealDB for ${os} on ${arch}`);
 
         const { stream, length } = await surrealdbDownload(version, os, arch);
-        const filename = surrealdbDownload(version, os, arch);
+        const filename = surrealdbFilename(version, os, arch);
 
         console.log(`[${prefix}] Publishing as ${filename}`);
 
