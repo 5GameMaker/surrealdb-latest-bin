@@ -48,7 +48,7 @@ async function surrealdbDownload(version, os, arch) {
     return { stream: file.body, length: file.headers.get("Content-Length") };
 }
 
-const surrealDBLicense = await fetch("https://raw.githubusercontent.com/surrealdb/surrealdb/refs/heads/main/LICENSE").then(x => x.text());
+// const surrealDBLicense = await fetch("https://raw.githubusercontent.com/surrealdb/surrealdb/refs/heads/main/LICENSE").then(x => x.text());
 
 /**
  * @param {string} prefix      
@@ -81,10 +81,10 @@ async function createRelease(prefix, versionfile, prerelease, alwaysnew) {
         console.log(`- ${asset.id}: ${asset.name} (${asset.state})`);
     }
 
-    if (!release.assets.some(x => x.name == "LICENSE")) {
-        console.log(`[${prefix}] Uploading LICENSE.`);
-        await releaseAssetUpload(surrealDBLicense, "LICENSE", null, release.uploadUrl);
-    }
+    // if (!release.assets.some(x => x.name == "LICENSE")) {
+    //     console.log(`[${prefix}] Uploading LICENSE.`);
+    //     await releaseAssetUpload(surrealDBLicense, "LICENSE", null, release.uploadUrl);
+    // }
 
     const promises = [];
     for (const [os, arch] of [
