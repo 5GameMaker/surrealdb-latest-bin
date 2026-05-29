@@ -4,6 +4,8 @@
 > By downloading files from this repo you agree with SurrealDB's License.
 >
 > You can read it here: <https://github.com/surrealdb/surrealdb/blob/main/LICENSE>.
+>
+> The `LICENSE` file in this repository is only for the code **in this repository** itself.
 
 Since SurrealDB isn't publishing their binaries on Github, I will!
 
