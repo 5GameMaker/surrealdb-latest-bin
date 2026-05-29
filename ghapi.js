@@ -87,11 +87,12 @@ export async function releaseAssetUpload(stream, name, contentLength, uploadUrl)
     url.searchParams.set("name", name);
 
     console.log(`info: uploading to ${url}`);
-    const output = await fetch(url.toString(), {
+    const params = {
         method: "POST",
         headers,
         body: stream,
-        duplex: "half",
-    });
+    };
+    if (stream instanceof ReadableStream) params.duplex = true;
+    const output = await fetch(url.toString(), params);
     if (!output.ok) throw Error(`Failed to upload asset: ${await output.text()}`);
 }
