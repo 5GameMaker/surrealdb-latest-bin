@@ -74,6 +74,11 @@ async function createRelease(prefix, versionfile, prerelease, alwaysnew) {
     let release = existingRelease;
     if (release == null) release = await releaseCreate(tag, prerelease);
 
+    console.log(`[${prefix}] Assets in release:`);
+    for (const asset of release.assets) {
+        console.log(`- ${asset.id}: ${asset.name} (${asset.state})`);
+    }
+
     const promises = [];
     for (const [os, arch] of [
         ["linux", "amd64"],
@@ -96,7 +101,7 @@ async function createRelease(prefix, versionfile, prerelease, alwaysnew) {
         }
 
         console.log(`[${prefix}] Uploading new asset`);
-        await releaseAssetUpload(stream, tag, null, release.uploadUrl);
+        await releaseAssetUpload(stream, filename, null, release.uploadUrl);
     } catch (e) { console.error(e); failed = true; } })());
     await Promise.all(promises);
     console.log(`[${prefix}] Upload complete.`);
