@@ -82,6 +82,7 @@ async function createRelease(prefix, versionfile, prerelease, alwaysnew) {
     }
 
     if (!release.assets.some(x => x.name == "LICENSE")) {
+        console.log(`[${prefix}] Uploading LICENSE.`);
         await releaseAssetUpload(surrealDBLicense, "LICENSE", surrealDBLicense.length, release.uploadUrl);
     }
 

@@ -13,6 +13,9 @@ publish them in [releases section](https://github.com/5GameMaker/surrealdb-lates
 
 Everything here is public information sourced from <https://install.surrealdb.com/>.
 
+Also don't rely on betas and alphas to be the latest versions. Sometimes release is! Well, don't rely on this repo at all
+if you can, but I'm not your teacher.
+
 ## Usage notes
 
 For Windows, SurrealDB simply publishes a binary.
