@@ -48,6 +48,8 @@ async function surrealdbDownload(version, os, arch) {
     return { stream: file.body, length: file.headers.get("Content-Length") };
 }
 
+const surrealDBLicense = await fetch("https://raw.githubusercontent.com/surrealdb/surrealdb/refs/heads/main/LICENSE").then(x => x.text());
+
 /**
  * @param {string} prefix      
  * @param {string} versionfile 
@@ -77,6 +79,10 @@ async function createRelease(prefix, versionfile, prerelease, alwaysnew) {
     console.log(`[${prefix}] Assets in release:`);
     for (const asset of release.assets) {
         console.log(`- ${asset.id}: ${asset.name} (${asset.state})`);
+    }
+
+    if (release.assets.all(x => x.name != "LICENSE")) {
+        await releaseAssetUpload(surrealDBLicense, "LICENSE", surrealDBLicense.length, release.uploadUrl);
     }
 
     const promises = [];
