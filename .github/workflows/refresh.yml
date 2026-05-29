@@ -25,4 +25,6 @@ jobs:
 
       - name: Run Node script
         run: node .
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         working-directory: .

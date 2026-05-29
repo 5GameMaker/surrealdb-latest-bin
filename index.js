@@ -57,7 +57,7 @@ async function createRelease(prefix, versionfile, prerelease, alwaysnew) {
     console.log(`[${prefix}] Fetched version: ${version}`);
 
     if (token == null) {
-        console.log(`[${prefix}] GITHUB-TOKEN is not defined, skipping upload...`);
+        console.log(`[${prefix}] GITHUB_TOKEN is not defined, skipping upload...`);
         return;
     }
 
