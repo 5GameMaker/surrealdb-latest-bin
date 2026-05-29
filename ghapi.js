@@ -91,8 +91,8 @@ export async function releaseAssetUpload(stream, name, contentLength, uploadUrl)
         method: "POST",
         headers,
         body: stream,
+        duplex: "half",
     };
-    if (stream instanceof ReadableStream) params.duplex = true;
     const output = await fetch(url.toString(), params);
     if (!output.ok) throw Error(`Failed to upload asset: ${await output.text()}`);
 }
