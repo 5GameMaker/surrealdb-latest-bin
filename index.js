@@ -73,6 +73,7 @@ async function createRelease(prefix, versionfile, prerelease, alwaysnew) {
     if (release == null) release = await releaseCreate(tag, prerelease);
 
     const promises = [];
+    let os, arch;
     for ([os, arch] of [
         ["linux", "x86_64"],
         ["linux", "arm64"],
