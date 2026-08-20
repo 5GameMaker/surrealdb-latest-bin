@@ -7,8 +7,6 @@
 >
 > The `LICENSE` file in this repository is only for the code **in this repository** itself.
 
-Since SurrealDB isn't publishing their binaries on Github, I will!
-
 This repo has an action running every day to check for updates. If an update is found, it'll download all the binaries and
 publish them in [releases section](https://github.com/5GameMaker/surrealdb-latest-bin/releases).
 
