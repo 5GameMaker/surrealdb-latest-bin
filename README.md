@@ -1,7 +1,7 @@
 # Latest SurrealDB binaries
 
 > [!WARNING]
-> By downloading files from this repo you agree with SurrealDB's License.
+> By downloading files from this repo you agree to SurrealDB's License.
 >
 > You can read it here: <https://github.com/surrealdb/surrealdb/blob/main/LICENSE>.
 >
